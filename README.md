@@ -5,7 +5,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=teznarayan-developer" alt="teznarayan-developer" /></a> </p>
 
-- 🌱 I’m currently learning **JavaScript,ReactJS**
+- 🌱 I’m **Front-end developer**
 
 - 📫 How to reach me **rohitkks010@gmail.com**
 
