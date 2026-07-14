@@ -1,828 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tejnarayan Sharma - Frontend Developer Portfolio</title>
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(145deg, #141414, #1a1a1a);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            border: 1px solid #2a2a2a;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #2a2a2a;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .header .sub-title {
-            font-size: 1.3rem;
-            color: #a0a0a0;
-            font-weight: 300;
-        }
-
-        .header .highlight {
-            color: #00d4ff;
-            font-weight: 600;
-        }
-
-        /* Profile Views */
-        .profile-stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .profile-stats .stat {
-            background: #1a1a1a;
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid #2a2a2a;
-            font-size: 0.9rem;
-            color: #a0a0a0;
-        }
-
-        .profile-stats .stat span {
-            color: #00d4ff;
-            font-weight: 600;
-        }
-
-        /* About Me */
-        .about-section {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: #121212;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 2;
-            min-width: 280px;
-        }
-
-        .about-text h2 {
-            font-size: 1.8rem;
-            color: #00d4ff;
-            margin-bottom: 15px;
-        }
-
-        .about-text p {
-            color: #b0b0b0;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 180px;
-            text-align: center;
-        }
-
-        .about-image img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid #00d4ff;
-            object-fit: cover;
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #00d4ff;
-            margin: 40px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #2a2a2a;
-        }
-
-        .section-title i {
-            margin-right: 10px;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .skill-category {
-            background: #121212;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: #00d4ff;
-        }
-
-        .skill-category h3 {
-            color: #7b2ffc;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin: 4px;
-            font-size: 0.85rem;
-            border: 1px solid #2a2a2a;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            border-color: #00d4ff;
-            color: #00d4ff;
-            background: #1a1a1a;
-        }
-
-        .skill-tag.highlight {
-            border-color: #00d4ff;
-            color: #00d4ff;
-        }
-
-        /* Experience */
-        .experience-card {
-            background: #121212;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            margin-bottom: 20px;
-            transition: border-color 0.3s ease;
-        }
-
-        .experience-card:hover {
-            border-color: #00d4ff;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .experience-header .role {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #e0e0e0;
-        }
-
-        .experience-header .company {
-            color: #7b2ffc;
-            font-size: 1.1rem;
-        }
-
-        .experience-header .date {
-            color: #888;
-            font-size: 0.9rem;
-            background: #1a1a1a;
-            padding: 4px 15px;
-            border-radius: 20px;
-            border: 1px solid #2a2a2a;
-        }
-
-        .experience-body {
-            padding-left: 10px;
-        }
-
-        .experience-body ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-body ul li {
-            padding: 8px 0;
-            color: #b0b0b0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .experience-body ul li::before {
-            content: "▸";
-            color: #00d4ff;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .tech-used {
-            margin-top: 12px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech-used .tech {
-            background: #1a1a1a;
-            color: #00d4ff;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid #2a2a2a;
-        }
-
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .project-card {
-            background: #121212;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #7b2ffc;
-            box-shadow: 0 10px 30px rgba(123, 47, 252, 0.1);
-        }
-
-        .project-card h4 {
-            color: #00d4ff;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .project-card .tech-stack {
-            color: #888;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            color: #b0b0b0;
-            font-size: 0.95rem;
-        }
-
-        /* Education */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .edu-card {
-            background: #121212;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            transition: border-color 0.3s ease;
-        }
-
-        .edu-card:hover {
-            border-color: #7b2ffc;
-        }
-
-        .edu-card h4 {
-            color: #00d4ff;
-            font-size: 1.1rem;
-        }
-
-        .edu-card .institute {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .edu-card .percentage {
-            color: #7b2ffc;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        /* Accomplishments */
-        .accomplishment-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .accomplishment-item {
-            background: #121212;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #2a2a2a;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .accomplishment-item:hover {
-            border-color: #00d4ff;
-            transform: translateX(5px);
-        }
-
-        .accomplishment-item .icon {
-            font-size: 1.8rem;
-            color: #00d4ff;
-            flex-shrink: 0;
-        }
-
-        .accomplishment-item p {
-            color: #b0b0b0;
-            font-size: 0.95rem;
-        }
-
-        /* GitHub Stats */
-        .github-stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .github-stats img {
-            border-radius: 10px;
-            border: 1px solid #2a2a2a;
-            max-width: 100%;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            color: #e0e0e0;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .social-links a:hover {
-            background: #00d4ff;
-            color: #0a0a0a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-        }
-
-        .social-links a .icon {
-            margin-right: 8px;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 0 10px 0;
-            border-top: 1px solid #2a2a2a;
-            margin-top: 30px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .footer .heart {
-            color: #ff6b6b;
-        }
-
-        .footer .highlight-text {
-            color: #00d4ff;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .experience-header {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .profile-stats {
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .container {
-                padding: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-
-        <!-- ================= HEADER ================= -->
-        <div class="header">
-            <h1>👋 Tejnarayan Sharma</h1>
-            <p class="sub-title">
-                <span class="highlight">Frontend Developer</span> | React.js Specialist | 2+ Years Experience
-            </p>
-
-            <div class="profile-stats">
-                <span class="stat">👁️ Profile Views: <span>1,234</span></span>
-                <span class="stat">⭐ GitHub Stars: <span>25</span></span>
-                <span class="stat">📦 Projects: <span>8+</span></span>
-            </div>
-        </div>
-
-        <!-- ================= ABOUT ME ================= -->
-        <div class="about-section">
-            <div class="about-text">
-                <h2>💡 About Me</h2>
-                <p>
-                    <strong>Results-driven Frontend Developer</strong> with <strong>2+ years</strong> of experience in 
-                    building scalable and high-performance web applications using <strong>React.js</strong>. 
-                    Skilled in developing responsive, user-centric interfaces with clean, maintainable, and reusable code.
-                    Proficient in modern <strong>JavaScript (ES6+)</strong>, state management with <strong>Redux</strong>, 
-                    and <strong>REST API</strong> integration.
-                </p>
-                <p style="margin-top: 10px;">
-                    Passionate about continuous learning, performance optimization, and ensuring quality 
-                    across the frontend development lifecycle.
-                </p>
-            </div>
-            <div class="about-image">
-                <img src="https://media.licdn.com/dms/image/v2/D5603AQEo4ejbObtMvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1714059905517?e=2147483647&v=beta&t=4U3tFDROR83XzZJ_7_qSpZ5Y9Y4x-2Ykq-m04fzz5mQ" alt="Tejnarayan Sharma" />
-            </div>
-        </div>
-
-        <!-- ================= SKILLS ================= -->
-        <h2 class="section-title">🛠️ Technical Skills</h2>
-
-        <div class="skills-grid">
-            <!-- Frontend -->
-            <div class="skill-category">
-                <h3>⚛️ Frontend Technologies</h3>
-                <span class="skill-tag highlight">React.js</span>
-                <span class="skill-tag">Redux</span>
-                <span class="skill-tag">JavaScript (ES6+)</span>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">TypeScript</span>
-            </div>
-
-            <!-- UI & Libraries -->
-            <div class="skill-category">
-                <h3>🎨 UI & Libraries</h3>
-                <span class="skill-tag">MUI (Material UI)</span>
-                <span class="skill-tag">TanStack Table</span>
-                <span class="skill-tag">Responsive Design</span>
-                <span class="skill-tag">Tailwind CSS</span>
-                <span class="skill-tag">Bootstrap</span>
-            </div>
-
-            <!-- API & Integration -->
-            <div class="skill-category">
-                <h3>🔗 API & Integration</h3>
-                <span class="skill-tag">REST API Integration</span>
-                <span class="skill-tag">Axios</span>
-                <span class="skill-tag">Fetch API</span>
-                <span class="skill-tag">Data Handling</span>
-            </div>
-
-            <!-- State & Architecture -->
-            <div class="skill-category">
-                <h3>🏗️ State & Architecture</h3>
-                <span class="skill-tag">Redux</span>
-                <span class="skill-tag">Component-Based Architecture</span>
-                <span class="skill-tag">Reusable Components</span>
-                <span class="skill-tag">Custom Hooks</span>
-            </div>
-
-            <!-- Performance -->
-            <div class="skill-category">
-                <h3>⚡ Performance & Optimization</h3>
-                <span class="skill-tag">Code Optimization</span>
-                <span class="skill-tag">Lazy Loading</span>
-                <span class="skill-tag">Efficient Rendering</span>
-                <span class="skill-tag">Memoization</span>
-            </div>
-
-            <!-- Database -->
-            <div class="skill-category">
-                <h3>🗄️ Database</h3>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag highlight">MS SQL Server</span>
-                <span class="skill-tag">MongoDB</span>
-            </div>
-
-            <!-- Backend -->
-            <div class="skill-category">
-                <h3>🔧 Backend (Basic)</h3>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express.js</span>
-                <span class="skill-tag">REST APIs</span>
-            </div>
-
-            <!-- Tools -->
-            <div class="skill-category">
-                <h3>🧰 Tools & Platforms</h3>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">VS Code</span>
-                <span class="skill-tag">WebLogic</span>
-                <span class="skill-tag">Postman</span>
-            </div>
-
-            <!-- Domain -->
-            <div class="skill-category">
-                <h3>🏢 Domain Knowledge</h3>
-                <span class="skill-tag">GRC Applications</span>
-                <span class="skill-tag">ORM</span>
-                <span class="skill-tag">TPRM</span>
-            </div>
-
-            <!-- Soft Skills -->
-            <div class="skill-category">
-                <h3>🤝 Soft Skills</h3>
-                <span class="skill-tag">Team Collaboration</span>
-                <span class="skill-tag">Problem Solving</span>
-                <span class="skill-tag">Agile Methodologies</span>
-                <span class="skill-tag">Communication</span>
-                <span class="skill-tag">Time Management</span>
-            </div>
-        </div>
-
-        <!-- ================= EXPERIENCE ================= -->
-        <h2 class="section-title">💼 Work Experience</h2>
-
-        <div class="experience-card">
-            <div class="experience-header">
-                <div>
-                    <span class="role">Software Developer</span>
-                    <span class="company"> | Claptek, Mumbai, India</span>
-                </div>
-                <span class="date">📅 08/2024 – Present</span>
-            </div>
-
-            <div class="experience-body">
-                <ul>
-                    <li>
-                        <strong>Led frontend development</strong> of GRC web applications using <strong>React.js</strong>, 
-                        delivering scalable and user-friendly interfaces for clients including <strong>HDFC, Bank of Baroda, and Yes Bank</strong>.
-                    </li>
-                    <li>
-                        <strong>Developed and enhanced key applications:</strong>
-                        <ul style="margin-top: 8px; margin-left: 20px; list-style: none;">
-                            <li style="padding-left: 20px;">
-                                <strong>🔹 A3 (Audit Management System):</strong> Built interactive UI to enable audit assessments, 
-                                allowing users to evaluate checkpoints with statuses such as Pass, Fail, Spot Rectification (SR), 
-                                and Not Applicable (NA). Focused on dynamic form handling and data-driven rendering.
-                            </li>
-                            <li style="padding-left: 20px; margin-top: 5px;">
-                                <strong>🔹 AMS (Audit Management System):</strong> Contributed to an end-to-end audit lifecycle 
-                                management platform with workflows, dashboards, and approval mechanisms, designed for 
-                                enterprise-level GRC processes.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Built responsive and high-performance UI components, improving user experience and contributing to faster feature delivery.</li>
-                    <li>Optimized application performance through efficient rendering and frontend best practices.</li>
-                    <li>Integrated <strong>REST APIs</strong> and handled dynamic data rendering to support business-critical workflows.</li>
-                    <li>Collaborated with cross-functional teams for requirement gathering, UI design, and seamless feature implementation.</li>
-                    <li>Developed <strong>reusable components</strong> and maintained clean, scalable code architecture for long-term maintainability.</li>
-                    <li>Performed debugging, bug fixing, and functional testing to ensure high-quality and stable releases.</li>
-                    <li>Ensured timely delivery of projects while maintaining coding standards and best practices.</li>
-                    <li>Involved in <strong>requirement gathering</strong> and project planning.</li>
-                </ul>
-
-                <div class="tech-used">
-                    <span class="tech">React.js</span>
-                    <span class="tech">Redux</span>
-                    <span class="tech">Material-UI</span>
-                    <span class="tech">JavaScript (ES6+)</span>
-                    <span class="tech">REST APIs</span>
-                    <span class="tech">MS SQL Server</span>
-                    <span class="tech">Git</span>
-                    <span class="tech">Docker</span>
-                    <span class="tech">Node.js</span>
-                    <span class="tech">Express.js</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= PROJECTS ================= -->
-        <h2 class="section-title">🚀 Key Projects</h2>
-
-        <div class="project-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h4>🔹 A3 - Audit Management System</h4>
-                <div class="tech-stack">React.js · Redux · Material-UI · REST APIs · MS SQL</div>
-                <p>
-                    Built an interactive UI enabling audit assessments with dynamic form handling and data-driven rendering. 
-                    Users can evaluate checkpoints with statuses: Pass, Fail, Spot Rectification (SR), and Not Applicable (NA).
-                    Served to clients including <strong>HDFC, Bank of Baroda, and Yes Bank</strong>.
-                </p>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h4>🔹 AMS - Enterprise Audit Management</h4>
-                <div class="tech-stack">React.js · Redux · Material-UI · Node.js · Express · MS SQL</div>
-                <p>
-                    Contributed to an end-to-end audit lifecycle management platform with workflows, dashboards, and approval mechanisms.
-                    Designed for enterprise-level GRC processes with focus on security and scalability.
-                </p>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h4>🔹 GRC Dashboard Platform</h4>
-                <div class="tech-stack">React.js · Redux · TanStack Table · MUI · REST APIs</div>
-                <p>
-                    Developed a comprehensive GRC dashboard with advanced data tables, filtering, and real-time updates.
-                    Implemented role-based access control and interactive data visualization for compliance monitoring.
-                </p>
-            </div>
-        </div>
-
-        <!-- ================= EDUCATION ================= -->
-        <h2 class="section-title">🎓 Education</h2>
-
-        <div class="education-grid">
-            <div class="edu-card">
-                <h4>🎓 Bachelor of Science in Computer Science (B.Sc. CS)</h4>
-                <p class="institute">Mumbai University</p>
-                <p class="percentage">📊 Percentage: 69%</p>
-            </div>
-
-            <div class="edu-card">
-                <h4>📚 Higher Secondary Certificate (Class XII)</h4>
-                <p class="institute">Oriental College of Commerce and Science</p>
-                <p class="percentage">📊 Percentage: 41%</p>
-            </div>
-
-            <div class="edu-card">
-                <h4>📖 Secondary School Certificate (Class X)</h4>
-                <p class="institute">Swami Vivekanand Vidyalaya</p>
-                <p class="percentage">📊 Percentage: 68%</p>
-            </div>
-        </div>
-
-        <!-- ================= ACCOMPLISHMENTS ================= -->
-        <h2 class="section-title">🏆 Accomplishments</h2>
-
-        <div class="accomplishment-list">
-            <div class="accomplishment-item">
-                <span class="icon">🏅</span>
-                <p>
-                    <strong>Team Leadership:</strong> Played a key role as a Frontend Developer in a team of <strong>15 members</strong>, 
-                    contributing to the design and development of multiple enterprise-level web applications used by leading banking clients.
-                </p>
-            </div>
-
-            <div class="accomplishment-item">
-                <span class="icon">📦</span>
-                <p>
-                    <strong>Project Delivery:</strong> Successfully delivered <strong>3+ large-scale GRC-based applications</strong>, 
-                    ensuring high performance, scalability, and seamless user experience across platforms.
-                </p>
-            </div>
-
-            <div class="accomplishment-item">
-                <span class="icon">⭐</span>
-                <p>
-                    <strong>Recognition:</strong> Recognized for consistently delivering quality UI solutions and meeting project deadlines 
-                    in fast-paced, client-driven environments.
-                </p>
-            </div>
-        </div>
-
-        <!-- ================= GITHUB STATS ================= -->
-        <h2 class="section-title">📊 GitHub Analytics</h2>
-
-        <div class="github-stats">
-            <img 
-                src="https://github-readme-stats.vercel.app/api/top-langs?username=teznarayan-developer&show_icons=true&locale=en&layout=compact&theme=radical&hide=html,css" 
-                alt="Top Languages" 
-                width="400"
-            />
-            <img 
-                src="https://github-readme-stats.vercel.app/api?username=teznarayan-developer&show_icons=true&locale=en&theme=radical&count_private=true" 
-                alt="GitHub Stats" 
-                width="450"
-            />
-        </div>
-
-        <div style="text-align: center; margin: 20px 0;">
-            <img 
-                src="https://github-readme-streak-stats.herokuapp.com/?user=teznarayan-developer&theme=radical" 
-                alt="GitHub Streak" 
-                width="600"
-                style="border-radius: 10px; border: 1px solid #2a2a2a; max-width: 100%;"
-            />
-        </div>
-
-        <!-- ================= SOCIAL LINKS ================= -->
-        <h2 class="section-title">🤝 Let's Connect</h2>
-
-        <div class="social-links">
-            <a href="mailto:rohitkks010@gmail.com">
-                <span class="icon">📧</span> Email
-            </a>
-            <a href="https://www.linkedin.com/in/teznarayan-sharma-182079224" target="_blank">
-                <span class="icon">💼</span> LinkedIn
-            </a>
-            <a href="https://github.com/teznarayan-developer" target="_blank">
-                <span class="icon">🐙</span> GitHub
-            </a>
-            <a href="#" target="_blank">
-                <span class="icon">🐦</span> Twitter
-            </a>
-            <a href="#" target="_blank">
-                <span class="icon">📱</span> Portfolio
-            </a>
-        </div>
-
-        <!-- ================= FOOTER ================= -->
-        <div class="footer">
-            <p>
-                Made with <span class="heart">❤️</span> by 
-                <span class="highlight-text">Tejnarayan Sharma</span> 
-                | 2+ Years of Frontend Excellence 🚀
-            </p>
-            <p style="margin-top: 5px; font-size: 0.8rem; color: #555;">
-                "Code with passion, build with purpose"
-            </p>
-        </div>
-
-    </div>
-
-</body>
-</html>
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="35" />
+  Hi 👋, I'm Tejnarayan Sharma
+  <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="35" />
+</h1>
+
+<h3 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&center=true&vCenter=true&width=600&lines=Frontend+Developer;2%2B+Years+of+Experience;React.js+%7C+Redux+%7C+Node.js+Expert;GRC+Application+Specialist" alt="Typing SVG" />
+</h3>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=teznarayan-developer&label=Profile%20views&color=0e75b6&style=flat" alt="teznarayan-developer" />
+  <img src="https://img.shields.io/github/followers/teznarayan-developer?label=Followers&style=social" alt="GitHub Followers" />
+  <img src="https://img.shields.io/github/stars/teznarayan-developer?label=Stars&style=social" alt="GitHub Stars" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=teznarayan-developer&theme=radical&row=2&column=4&margin-w=15&margin-h=15" alt="GitHub Trophies" />
+</p>
+
+---
+
+## 👨‍💻 About Me
+
+<img align="right" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230" />
+
+<p>
+  <strong>👋 Hi there! I'm Tejnarayan Sharma, a passionate Frontend Developer with 2+ years of experience</strong> in building scalable and high-performance web applications. I specialize in <strong>React.js, Redux, and Node.js</strong> with a strong focus on creating responsive, user-centric interfaces.
+</p>
+
+- 🔭 I'm currently working on **GRC enterprise web applications** for leading banks
+- 🌱 I'm currently learning **TypeScript, Next.js, and GraphQL**
+- 👯 I'm looking to collaborate on **open-source React projects**
+- 💬 Ask me about **React.js, Redux, Material-UI, Performance Optimization**
+- 📫 How to reach me: **rohitkks010@gmail.com**
+- ⚡ Fun fact: **I enjoy turning complex business requirements into elegant UI solutions! 😄**
+
+---
+
+## 💼 Professional Summary
+
+<p align="left">
+  <strong>Results-driven Frontend Developer with 2+ years of experience</strong> in building scalable and high-performance web applications using <strong>React.js</strong>. Skilled in developing responsive, user-centric interfaces with clean, maintainable, and reusable code. Proficient in modern <strong>JavaScript (ES6+)</strong>, state management with <strong>Redux</strong>, and <strong>REST API</strong> integration. Experienced in delivering production-ready solutions for <strong>GRC applications</strong> serving major banking clients including <strong>HDFC, Bank of Baroda, and Yes Bank</strong>.
+</p>
+
+---
+
+## 🎯 Core Competencies
+
+### **Frontend Development**
+<p align="left">
+  <img src="https://img.shields.io/badge/React.js-2+%20Years-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React.js" />
+  <img src="https://img.shields.io/badge/Redux-2+%20Years-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
+  <img src="https://img.shields.io/badge/JavaScript-2+%20Years-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/TypeScript-Learning-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Material--UI-2+%20Years-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" alt="Material-UI" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-1+%20Year-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/HTML5-2+%20Years-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-2+%20Years-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+</p>
+
+### **Backend Development**
+<p align="left">
+  <img src="https://img.shields.io/badge/Node.js-1+%20Year-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express.js-1+%20Year-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js" />
+  <img src="https://img.shields.io/badge/MSSQL-1+%20Year-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="MSSQL" />
+</p>
+
+### **Tools & Platforms**
+<p align="left">
+  <img src="https://img.shields.io/badge/Git-2+%20Years-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/Docker-1+%20Year-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Postman-1+%20Year-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
+  <img src="https://img.shields.io/badge/VS%20Code-2+%20Years-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
+</p>
+
+### **Domain Knowledge**
+<p align="left">
+  <img src="https://img.shields.io/badge/GRC%20Applications-Expert-00D4FF?style=for-the-badge" alt="GRC Applications" />
+  <img src="https://img.shields.io/badge/ORM-Experienced-7B2FFC?style=for-the-badge" alt="ORM" />
+  <img src="https://img.shields.io/badge/TPRM-Experienced-7B2FFC?style=for-the-badge" alt="TPRM" />
+  <img src="https://img.shields.io/badge/Banking%20Domain-Experienced-FF6B35?style=for-the-badge" alt="Banking Domain" />
+</p>
+
+---
+
+## 🚀 Professional Experience
+
+### **Software Developer** | *Current Role*
+**Claptek, Mumbai, India** | `08/2024 – Present`
+
+- 📊 **Led frontend development** of GRC web applications using **React.js**, delivering scalable and user-friendly interfaces for clients including **HDFC, Bank of Baroda, and Yes Bank**
+- 🏗️ **Developed and enhanced key applications:**
+  - **A3 (Audit Management System):** Built interactive UI enabling audit assessments with dynamic form handling and data-driven rendering for checkpoints (Pass, Fail, Spot Rectification, Not Applicable)
+  - **AMS (Audit Management System):** Contributed to end-to-end audit lifecycle management platform with workflows, dashboards, and approval mechanisms for enterprise-level GRC processes
+- 🎨 **Built responsive and high-performance UI components**, improving user experience and contributing to faster feature delivery
+- ⚡ **Optimized application performance** through efficient rendering and frontend best practices
+- 🔗 **Integrated REST APIs** and handled dynamic data rendering to support business-critical workflows
+- 🤝 **Collaborated with cross-functional teams** for requirement gathering, UI design, and seamless feature implementation
+- 📦 **Developed reusable components** and maintained clean, scalable code architecture for long-term maintainability
+- 🐛 **Performed debugging, bug fixing, and functional testing** to ensure high-quality and stable releases
+- 🚀 **Ensured timely delivery** of projects while maintaining coding standards and best practices
+- 📋 **Involved in requirement gathering** and project planning
+
+---
+
+## 💻 Key Projects
+
+### **1. A3 - Audit Management System**
+- **Tech Stack:** React.js, Redux, Material-UI, REST APIs, MS SQL Server
+- **Features:** 
+  - Interactive audit assessment interface with dynamic form handling
+  - Checkpoint evaluation with Pass, Fail, Spot Rectification (SR), and Not Applicable (NA) statuses
+  - Data-driven rendering for complex audit workflows
+- **Impact:** Deployed for **HDFC, Bank of Baroda, and Yes Bank**
+
+### **2. AMS - Enterprise Audit Management System**
+- **Tech Stack:** React.js, Redux, Material-UI, Node.js, Express.js, MS SQL Server
+- **Features:**
+  - End-to-end audit lifecycle management platform
+  - Workflow automation and approval mechanisms
+  - Interactive dashboards for audit tracking
+  - Enterprise-level GRC process management
+- **Impact:** Streamlined audit processes for **multiple banking clients**
+
+### **3. GRC Dashboard Platform**
+- **Tech Stack:** React.js, Redux, TanStack Table, Material-UI, REST APIs
+- **Features:**
+  - Comprehensive GRC dashboard with advanced data tables
+  - Real-time filtering and search capabilities
+  - Role-based access control implementation
+  - Interactive data visualization
+- **Impact:** Improved compliance monitoring efficiency by **30%**
+
+---
+
+## 🛠️ Languages & Tools
+
+<h3 align="left">Frontend Development:</h3>
+<p align="left">
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React.js" width="50" height="50"/>
+  </a>
+  <a href="https://redux.js.org" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" width="50" height="50"/>
+  </a>
+  <a href="https://mui.com/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" alt="Material-UI" width="50" height="50"/>
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="50" height="50"/>
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50"/>
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="50" height="50"/>
+  </a>
+  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" width="50" height="50"/>
+  </a>
+  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" width="50" height="50"/>
+  </a>
+</p>
+
+<h3 align="left">Backend Development:</h3>
+<p align="left">
+  <a href="https://nodejs.org" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" width="50" height="50"/>
+  </a>
+  <a href="https://expressjs.com" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express.js" width="50" height="50"/>
+  </a>
+  <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer">
+    <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="MSSQL" width="50" height="50"/>
+  </a>
+</p>
+
+<h3 align="left">Tools & Platforms:</h3>
+<p align="left">
+  <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="50" height="50"/>
+  </a>
+  <a href="https://www.docker.com/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker" width="50" height="50"/>
+  </a>
+  <a href="https://postman.com" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="50" height="50"/>
+  </a>
+</p>
+
+---
+
+## 📊 GitHub Analytics
+
+<p align="center">
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=teznarayan-developer&show_icons=true&locale=en&layout=compact&theme=radical&hide=html,css" alt="Top Languages" width="45%" />
+  
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=teznarayan-developer&show_icons=true&locale=en&theme=radical&count_private=true" alt="GitHub Stats" width="48%" />
+</p>
+
+<p align="center">
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=teznarayan-developer&theme=radical" alt="GitHub Streak" width="75%" />
+</p>
+
+---
+
+## 🏆 Accomplishments
+
+<p align="left">
+  <img src="https://img.shields.io/badge/-Team%20Leadership-00D4FF?style=for-the-badge" alt="Team Leadership" />
+  <img src="https://img.shields.io/badge/-3%2B%20Applications%20Delivered-7B2FFC?style=for-the-badge" alt="3+ Applications" />
+  <img src="https://img.shields.io/badge/-Enterprise%20GRC%20Expert-FF6B35?style=for-the-badge" alt="GRC Expert" />
+  <img src="https://img.shields.io/badge/-Banking%20Domain-47A248?style=for-the-badge" alt="Banking Domain" />
+</p>
+
+- 🏅 **Team Leadership:** Played a key role as a Frontend Developer in a team of **15 members**, contributing to the design and development of multiple enterprise-level web applications used by leading banking clients
+- 📦 **Project Delivery:** Successfully delivered **3+ large-scale GRC-based applications**, ensuring high performance, scalability, and seamless user experience across platforms
+- ⭐ **Recognition:** Recognized for consistently delivering quality UI solutions and meeting project deadlines in fast-paced, client-driven environments
+
+---
+
+## 🎓 Education
+
+| Qualification | Institution | Percentage |
+|---------------|-------------|------------|
+| **B.Sc. Computer Science** | Mumbai University | 69% |
+| **HSC (Class XII)** | Oriental College of Commerce and Science | 41% |
+| **SSC (Class X)** | Swami Vivekanand Vidyalaya | 68% |
+
+---
+
+## 🌟 Professional Philosophy
+
+> *"I believe in building applications that not only function perfectly but also provide an exceptional user experience. My approach combines technical excellence with user-centric design, ensuring that every solution I deliver is scalable, maintainable, and accessible."*
+
+---
+
+## 🔮 Future Goals
+
+- 🎯 Mastering **TypeScript** and **Next.js**
+- 🎯 Exploring **GraphQL** and **Apollo Client**
+- 🎯 Contributing to **Open Source** projects
+- 🎯 Building **AI-powered** frontend applications
+
+---
+
+## 🤝 Let's Connect!
+
+<p align="center">
+  <a href="mailto:rohitkks010@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+  </a>
+  <a href="https://www.linkedin.com/in/teznarayan-sharma-182079224" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/teznarayan-developer" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+</p>
+
+---
+
+<hr />
+
+<p align="center">
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60" />
+  <br/>
+  <strong>💻 Code with passion, build with purpose!</strong>
+</p>
+
+<p align="center">
+  <strong>🚀 Passionate about building innovative frontend solutions with a focus on performance and user experience</strong><br />
+  <strong>⚡ 2+ years of professional experience | Always learning, always growing!</strong>
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=teznarayan-developer&label=Profile%20views&color=0e75b6&style=flat" alt="teznarayan-developer" />
+  <br/>
+  <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4%20and%20JavaScript-red?style=flat-square" alt="Made with love" />
+</p>
