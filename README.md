@@ -25,7 +25,7 @@
 <img align="right" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230" />
 
 <p>
-  <strong>👋 Hi there! I'm Tejnarayan Sharma, a passionate Frontend Developer with 2+ years of experience</strong> in building scalable and high-performance web applications. I specialize in <strong>React.js, Redux, and Node.js</strong> with a strong focus on creating responsive, user-centric interfaces.
+  <strong>👋 Hi there! I'm Tejnarayan Sharma, a passionate Frontend Developer with 3+ years of experience</strong> in building scalable and high-performance web applications. I specialize in <strong>React.js, Redux, and Node.js</strong> with a strong focus on creating responsive, user-centric interfaces.
 </p>
 
 - 🔭 I'm currently working on **GRC enterprise web applications** for leading banks
@@ -40,7 +40,7 @@
 ## 💼 Professional Summary
 
 <p align="left">
-  <strong>Results-driven Frontend Developer with 2+ years of experience</strong> in building scalable and high-performance web applications using <strong>React.js</strong>. Skilled in developing responsive, user-centric interfaces with clean, maintainable, and reusable code. Proficient in modern <strong>JavaScript (ES6+)</strong>, state management with <strong>Redux</strong>, and <strong>REST API</strong> integration. Experienced in delivering production-ready solutions for <strong>GRC applications</strong> serving major banking clients including <strong>HDFC, Bank of Baroda, and Yes Bank</strong>.
+  <strong>Results-driven Frontend Developer with 3+ years of experience</strong> in building scalable and high-performance web applications using <strong>React.js</strong>. Skilled in developing responsive, user-centric interfaces with clean, maintainable, and reusable code. Proficient in modern <strong>JavaScript (ES6+)</strong>, state management with <strong>Redux</strong>, and <strong>REST API</strong> integration. Experienced in delivering production-ready solutions for <strong>GRC applications</strong> serving major banking clients including <strong>HDFC, Bank of Baroda, and Yes Bank</strong>.
 </p>
 
 ---
@@ -49,14 +49,14 @@
 
 ### **Frontend Development**
 <p align="left">
-  <img src="https://img.shields.io/badge/React.js-2+%20Years-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React.js" />
-  <img src="https://img.shields.io/badge/Redux-2+%20Years-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
-  <img src="https://img.shields.io/badge/JavaScript-2+%20Years-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/React.js-3+%20Years-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React.js" />
+  <img src="https://img.shields.io/badge/Redux-3+%20Years-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
+  <img src="https://img.shields.io/badge/JavaScript-3+%20Years-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/TypeScript-Learning-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Material--UI-2+%20Years-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" alt="Material-UI" />
+  <img src="https://img.shields.io/badge/Material--UI-3+%20Years-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" alt="Material-UI" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-1+%20Year-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/HTML5-2+%20Years-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-2+%20Years-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/HTML5-3+%20Years-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-3+%20Years-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
 </p>
 
 ### **Backend Development**
@@ -68,10 +68,10 @@
 
 ### **Tools & Platforms**
 <p align="left">
-  <img src="https://img.shields.io/badge/Git-2+%20Years-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/Git-3+%20Years-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/Docker-1+%20Year-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Postman-1+%20Year-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
-  <img src="https://img.shields.io/badge/VS%20Code-2+%20Years-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
+  <img src="https://img.shields.io/badge/VS%20Code-3+%20Years-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
 </p>
 
 ### **Domain Knowledge**
@@ -272,7 +272,7 @@
 
 <p align="center">
   <strong>🚀 Passionate about building innovative frontend solutions with a focus on performance and user experience</strong><br />
-  <strong>⚡ 2+ years of professional experience | Always learning, always growing!</strong>
+  <strong>⚡ 3+ years of professional experience | Always learning, always growing!</strong>
 </p>
 
 <p align="center">
